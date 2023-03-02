@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-api-feed
+  name: udagram-api-feed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+      - image: marinaessmatyousef/udagram-feed:v1
+        name: udagram-api-feed
+        envFrom:
+        - configMapRef:
+            name: env-config
+        - secretRef:
+            name: env-secret
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "/root/.aws/"
+            readOnly: true        
+      restartPolicy: Always
+      volumes:
+        - name: aws-secret
+          secret:
+            secretName: aws-secret 

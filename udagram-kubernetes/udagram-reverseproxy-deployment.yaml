@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reverseproxy
+  labels:
+    app: reverseproxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reverseproxy
+  template:
+    metadata:
+      labels:
+        app: reverseproxy
+    spec:
+      containers:
+      - image: marinaessmatyousef/reverseproxy:v1
+        name: reverseproxy
