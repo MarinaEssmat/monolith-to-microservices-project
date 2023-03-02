@@ -15,7 +15,7 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - image: marinaessmatyousef/udagram-feed:v1
+      - image: marinaessmatyousef/udagram-api-feed:v1
         name: udagram-api-feed
         envFrom:
         - configMapRef:
