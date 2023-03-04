@@ -2,10 +2,10 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: configmap
+  name: env-config
 data:
   POSTGRES_HOST: database-1.chjeuyquiior.us-east-1.rds.amazonaws.com
-  #POSTGRES_DB: null
+  POSTGRES_DB: postgres
   AWS_BUCKET: arn:aws:s3:::udigram-bucket
   AWS_REGION: us-east-1
   AWS_PROFILE: default

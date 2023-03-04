@@ -15,5 +15,5 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: marinaessmatyousef/reverseproxy:v1
+      - image: marinaessmatyousef/udagram-reverseproxy:v1
         name: reverseproxy
