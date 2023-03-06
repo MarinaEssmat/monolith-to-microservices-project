@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node .",
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
-    "prod": "tsc && node ./www/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts && tsc --version",
+    "prod": "tsc && node ./www/server.js && tsc --version",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,8 +27,9 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.0.3",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^5.21.4",
-    "sequelize-typescript": "^0.6.9"
+    "sequelize": ">=6.20.1",
+    "sequelize-typescript": "^2.1.5",
+    "typescript": "4.8.4"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
@@ -45,6 +46,7 @@
     "eslint-config-google": "^0.14.0",
     "mocha": "^6.1.4",
     "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.3.4000"
+    "typescript": "4.8.4",
+    "sequelize": ">=6.20.1"
   }
 }
